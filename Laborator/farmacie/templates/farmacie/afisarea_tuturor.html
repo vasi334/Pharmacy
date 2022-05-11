@@ -1,0 +1,56 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<h3>&nbsp;&nbsp;Medicamente</h3>
+
+ {% for i in rez %}
+ <ul><a href="{% url 'project' i.id%}">
+   <li>&nbsp;&nbsp;&nbsp;&nbsp;{{i}}</li></a>
+   <div class="project__tags">
+    <span class="tag tag--pill tag--main">
+     <small>
+     <a href="{% url 'update-medicament' i.id %}">Editeaza</a>
+     </small>
+     <small>
+      <a href="{% url 'delete-medicament' i.id %}">&nbsp;&nbsp;&nbsp;&nbsp;Sterge</a>
+     </small>
+ </ul>
+ {% endfor %}
+
+
+<h3>&nbsp;&nbsp;Carduri</h3>
+
+  {% for i in rez1 %}
+ <ul><a href="{% url 'carduri' i.id%}">
+   <li>&nbsp;&nbsp;&nbsp;&nbsp;{{i}}</li>
+  </a>
+  <div class="project__tags">
+   <span class="tag tag--pill tag--main">
+    <small>
+     <a href="{% url 'update-card' i.id %}">Editeaza</a>
+    </small>
+    <small>
+     <a href="{% url 'delete-card' i.id %}">&nbsp;&nbsp;&nbsp;&nbsp;Sterge</a>
+    </small>
+ </ul>
+  {% endfor %}
+
+<h3>&nbsp;&nbsp;Tranzactii</h3>
+
+   {% for i in rez2 %}
+ <ul><a href="{% url 'tranzactii' i.id%}">
+   <li>&nbsp;&nbsp;&nbsp;&nbsp;{{i}}</li>
+  </a>
+  <div class="project__tags">
+   <span class="tag tag--pill tag--main">
+    <small>
+     <a href="{% url 'update-tranzactie' i.id %}">Editeaza</a>
+    </small>
+    <small>
+     <a href="{% url 'delete-tranzactie' i.id %}">&nbsp;&nbsp;&nbsp;&nbsp;Sterge</a>
+    </small>
+ </ul>
+   {% endfor %}
+
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+{% for i in queryset %}
+{% for card in carduri %}
+
+{% if i == card.CNP %}
+
+<br>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Nume: {{card.nume}}.</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Prenume: {{card.prenume}}.</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;CNP: {{card.CNP}}.</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Data nasterii: {{card.data_nasterii}}.</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Data inregistrarii: {{card.data_inregistrarii}}.</p>
+
+{% endif %}
+
+{% endfor %}
+{% endfor %}
+
+{% endblock content %}

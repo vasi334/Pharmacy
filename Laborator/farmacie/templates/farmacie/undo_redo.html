@@ -1,0 +1,10 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<form action="" method="POST" >
+    {% csrf_token %}
+    &nbsp;&nbsp;&nbsp;&nbsp;<input class="btn btn--sub btn--lg  my-md" type="submit" name="undo" value="Undo" />
+    &nbsp;&nbsp;&nbsp;&nbsp;<input class="btn btn--sub btn--lg  my-md" type="submit" name="redo" value="Redo" />
+</form>
+
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+{% for medicament in medicamente %}
+
+<br>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Nume: {{medicament.nume}}.</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Producator: {{medicament.producator}}.</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Pret: {{medicament.pret}}.</p>
+{% if medicament.necesita_reteta %}
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Necesita reteta</p>
+{% else %}
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Nu necesita reteta</p>
+{% endif %}
+
+{% endfor %}
+
+{% endblock content %}

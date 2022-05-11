@@ -1,0 +1,26 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<br>
+&nbsp;Alege o functionalitate:
+<br>
+<br>
+<a href="{% url 'generare_random' %}">&nbsp;&nbsp;&nbsp;&nbsp;Generare random de medicamente.</a>
+<br>
+<a href="{% url 'afisare_interval_data' %}">&nbsp;&nbsp;&nbsp;&nbsp;Afișarea tuturor tranzacțiilor dintr-un interval de zile dat.</a>
+<br>
+<a href="{% url 'afisare_descrescator' %}">&nbsp;&nbsp;&nbsp;&nbsp;Afișarea medicamentelor ordonate descrescător după numărul de vânzări.</a>
+<br>
+<a href="{% url 'reduceri_obtinute' %}">&nbsp;&nbsp;&nbsp;&nbsp;Afișarea cardurilor client ordonate descrescător după valoarea reducerilor obținute.</a>
+<br>
+<a href="{% url 'sterge_tranzactie_interval' %}">&nbsp;&nbsp;&nbsp;&nbsp;Ștergerea tuturor tranzacțiilor dintr-un anumit interval de zile.</a>
+<br>
+<a href="{% url 'scumpire' %}">&nbsp;&nbsp;&nbsp;&nbsp;Scumpirea cu un procentaj dat a tuturor medicamentelor cu prețul mai mic decât o valoare dată.</a>
+<br>
+<a href="{% url 'afisarea_tuturor' %}">&nbsp;&nbsp;&nbsp;&nbsp;Afișarea tuturor datelor din memorie.</a>
+<br>
+<a href="{% url 'stergere_cascada' %}">&nbsp;&nbsp;&nbsp;&nbsp;Ștergerea in cascadă.</a> 
+<br>
+<a href="{% url 'undo_redo' %}">&nbsp;&nbsp;&nbsp;&nbsp;Undo/Redo</a> 
+
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<br>
+<div>
+<div class="hero-section__search">
+ <form class="form" action="{% url 'afisare_interval_data' %}" method="POST">
+  {% csrf_token %}
+  <div class="form__field">
+   <label for="formInput#search">Cauta </label>
+   <input class="input input--text" id="formInput#search" type="date" name="data_0" placeholder="Din data de" />
+  </div>
+
+  <br>
+  <div class="hero-section__search">
+
+    <div class="form__field">
+     <label for="formInput#search">Cauta </label>
+     <input class="input input--text" id="formInput#search" type="date" name="data_1" placeholder="Pana in data de" />
+     <input class="btn btn--sub btn--lg" type="submit" value="Cauta" />
+    </div>
+   </form>
+</div>
+
+{% if tranzactie %}
+
+{% for t in tranzactie %}
+
+<li><a href="{% url 'tranzactii' t.id %}">&nbsp;&nbsp;{{t}}</a></li>
+
+{% endfor %}
+
+{% endif %}
+
+{% endblock %}

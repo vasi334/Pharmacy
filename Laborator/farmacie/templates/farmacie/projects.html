@@ -1,0 +1,125 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<!-- Main Section -->
+<main class="projects">
+ <section class="hero-section text-center">
+  <div class="container container--narrow">
+   <div class="hero-section__box">
+    <h2>Cautare <span>FULL TEXT</span></h2>
+   </div>
+
+   <div class="hero-section__search">
+    <form class="form" action="{% url 'cautare-full-text' %}" method="POST">
+      {% csrf_token %}
+     <div class="form__field">
+      <label for="formInput#search">Cauta </label>
+      <input class="input input--text" id="formInput#search" type="text" name="cautat"
+       placeholder="Cauta" />
+     </div>
+
+     <input class="btn btn--sub btn--lg" type="submit" value="Cauta" />
+    </form>
+   </div>
+  </div>
+ </section>
+ <!-- Search Result: DevList -->
+ <section class="projectsList">
+
+<h2>&nbsp;&nbsp;&nbsp;&nbsp;Medicamente</h2>
+
+  <div class="container">
+   <div class="grid grid--three">
+
+    {% for medicament in medicamente %}
+    <div class="column">
+     <div class="card project">
+      <a href="{% url 'project' medicament.id%}" class="project">
+       <div class="card__body">
+        <h3 class="project__title">{{medicament.nume}}</h3>
+        <p><a class="project__author" href="{% url 'project' medicament.id%}">{{medicament.producator}}</a></p>
+        <div class="project__tags">
+         <span class="tag tag--pill tag--main">
+          <small>
+          {% if medicament.necesita_reteta is True %}
+          Pe baza de reteta
+          {% else %}
+          Nu necesita reteta
+          {% endif %}
+          </small>
+         </span>
+        <span class="tag tag--pill tag--main">
+        <a href="{% url 'update-medicament' medicament.id %}">Editeaza</a>
+        </span>
+        <span class="tag tag--pill tag--main">
+        <a href="{% url 'delete-medicament' medicament.id %}">Sterge</a>
+        </span>
+        </div>
+       </div>
+      </a>
+     </div>
+    </div>
+    {% endfor %}
+   </div>
+  </div>
+
+<h2>&nbsp;&nbsp;&nbsp;&nbsp;Carduri</h2>
+
+    <div class="container">
+      <div class="grid grid--three">
+    
+        {% for card in carduri %}
+        <div class="column">
+          <div class="card project">
+            <a href="{% url 'carduri' card.id%}" class="project">
+              <div class="card__body">
+                <h3 class="project__title">{{card.nume}}</h3>
+                <p><a class="project__author" href="{% url 'carduri' card.id%}">{{card.CNP}}</a></p>
+                <div class="project__tags">
+                  <span class="tag tag--pill tag--main">
+                    <a href="{% url 'update-card' card.id %}">Editeaza</a>
+                  </span>
+                  <span class="tag tag--pill tag--main">
+                    <a href="{% url 'delete-card' card.id %}">Sterge</a>
+                  </span>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+<h2>&nbsp;&nbsp;&nbsp;&nbsp;Tranzactii</h2>
+
+     <div class="container">
+        <div class="grid grid--three">
+      
+          {% for tranzactie in tranzactii %}
+          <div class="column">
+            <div class="card project">
+              <a href="{% url 'tranzactii' tranzactie.id%}" class="project">
+                <div class="card__body">
+                  <h3 class="project__title">{{tranzactie.id_card_client}}</h3>
+                  <p><a class="project__author" href="{% url 'tranzactii' tranzactie.id%}">{{tranzactie.medicament}}</a></p>
+                  <div class="project__tags">
+                    <span class="tag tag--pill tag--main">
+                      <a href="{% url 'update-tranzactie' tranzactie.id %}">Editeaza</a>
+                    </span>
+                    <span class="tag tag--pill tag--main">
+                      <a href="{% url 'delete-tranzactie' tranzactie.id %}">Sterge</a>
+                    </span>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+ </section>
+</main>
+
+{% endblock content %}

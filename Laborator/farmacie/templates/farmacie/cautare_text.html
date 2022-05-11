@@ -1,0 +1,23 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+{% for rezultat in queryset %}
+
+<li><a href="/project/{{rezultat.id}}">{{rezultat.nume}} (medicament)</a></li>
+
+{% endfor %}
+
+{% for rezultat in queryset1 %}
+
+<li><a href="/carduri/{{rezultat.id}}">{{rezultat.nume}} (card)</a></li>
+
+{% endfor %}
+
+{% for rezultat in queryset2 %}
+
+<li><a href="/tranzactii/{{rezultat.id}}">{{rezultat.id_card_client}} (tranzactie)</a></li>
+
+{% endfor %}
+
+{% endblock content %}
